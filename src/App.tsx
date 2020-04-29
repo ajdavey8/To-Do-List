@@ -62,15 +62,15 @@ const App = () => {
     <>
       <GlobalStyles />
       <Header />
-      <TodoCreator
-        onSubmit={handleTodoCreate}
-      />
       <RecorderPanel
         isRecording={isRecording}
         startRecording={handleStartRecording}
         stopRecording={handleStopRecording}
         clearRecording={handleClearRecording}
         playRecording={handlePlayRecording}
+      />
+      <TodoCreator
+        onSubmit={handleTodoCreate}
       />
       <TodoList
         todos={state.todos}
