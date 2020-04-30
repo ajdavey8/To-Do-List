@@ -1,21 +1,19 @@
 import { Actions, Todo } from '../types';
 
-type State = { todos: Todo[], count: number }
+type State = { todos: Todo[] }
 
 const intialState: State = {
   todos: [],
-  count: 0
 }
 
 function todoReducer(state = intialState, action: Actions) {
   switch (action.type) {
     case 'CREATE': {
       return {
-        count: state.count + 1,
         todos: [
           ...state.todos,
           {
-            id: state.count,
+            id: Number(state.todos.reduce((maxId: number, todo: Todo) => Math.max(todo.id, maxId), -1)) + 1,
             name: action.payload.name,
             description: action.payload.description,
             creationDate: Date()
@@ -40,7 +38,6 @@ function todoReducer(state = intialState, action: Actions) {
     }
     case 'RESET': {
       return {
-        count: 0,
         todos: []
       }
     }

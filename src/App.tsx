@@ -11,7 +11,7 @@ import RecorderPanel from './components/RecorderPanel';
 import Header from './components/Header';
 
 const App = () => {
-  const [state, dispatch] = useReducer(todoReducer, { todos: [], count: 0 })
+  const [state, dispatch] = useReducer(todoReducer, { todos: [] })
   const {
     checkRecording,
     clearRecordings,
