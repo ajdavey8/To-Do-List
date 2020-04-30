@@ -1,5 +1,6 @@
 import todos from '../todos'
 import { CreateAction, UpdateAction, DeleteAction, ResetAction } from '../../types'
+import { CREATE, UPDATE, DELETE, RESET } from '../../constants/ActionTypes'
 
 const initialState = {
   todos: [],
@@ -7,7 +8,7 @@ const initialState = {
 
 describe('todos reducer', () => {
   it('should CREATE a todo', () => {
-    const action: CreateAction = { type: 'CREATE', payload: { name: 'test', description: 'testing todo' } }
+    const action: CreateAction = { type: CREATE, payload: { name: 'test', description: 'testing todo' } }
     const newState = todos(initialState, action)
     expect(newState).toEqual({
       todos: [{
@@ -30,7 +31,7 @@ describe('todos reducer', () => {
       }
       ]
     }
-    const action: UpdateAction = { type: 'UPDATE', payload: { id: 0, name: 'test updated', description: 'testing todo' } }
+    const action: UpdateAction = { type: UPDATE, payload: { id: 0, name: 'test updated', description: 'testing todo' } }
     const newState = todos(initialState, action)
     expect(newState).toEqual({
       todos: [{
@@ -53,7 +54,7 @@ describe('todos reducer', () => {
       }
       ]
     }
-    const action: DeleteAction = { type: 'DELETE', payload: { id: 0 } }
+    const action: DeleteAction = { type: DELETE, payload: { id: 0 } }
     const newState = todos(initialState, action)
     expect(newState).toEqual({
       todos: []
@@ -70,7 +71,7 @@ describe('todos reducer', () => {
       }
       ]
     }
-    const action: ResetAction = { type: 'RESET' }
+    const action: ResetAction = { type: RESET }
     const newState = todos(initialState, action)
     expect(newState).toEqual({
       todos: []

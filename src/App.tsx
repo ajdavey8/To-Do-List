@@ -9,6 +9,7 @@ import TodoList from './components/TodoList';
 import TodoCreator from './components/TodoCreator';
 import RecorderPanel from './components/RecorderPanel';
 import Header from './components/Header';
+import { UPDATE, CREATE, DELETE, RESET } from './constants/ActionTypes';
 
 const App = () => {
   const [state, dispatch] = useReducer(todoReducer, { todos: [] })
@@ -21,21 +22,21 @@ const App = () => {
   } = useRecordings()
 
   const handleTodoCreate = (todo: NewTodo) => {
-    const action: CreateAction = { type: 'CREATE', payload: { ...todo } }
+    const action: CreateAction = { type: CREATE, payload: { ...todo } }
 
     dispatch(action)
     checkRecording(action)
   }
 
   const handleTodoUpdate = (todo: UpdatedTodo) => {
-    const action: UpdateAction = { type: 'UPDATE', payload: { ...todo } }
+    const action: UpdateAction = { type: UPDATE, payload: { ...todo } }
 
     dispatch(action)
     checkRecording(action)
   }
 
   const handleTodoDelete = (id: number) => {
-    const action: DeleteAction = { type: 'DELETE', payload: { id } }
+    const action: DeleteAction = { type: DELETE, payload: { id } }
 
     dispatch(action)
     checkRecording(action)
@@ -54,7 +55,7 @@ const App = () => {
   }
 
   const handlePlayRecording = () => {
-    dispatch({ type: 'RESET' })
+    dispatch({ type: RESET })
     playRecording(dispatch)
   }
 
