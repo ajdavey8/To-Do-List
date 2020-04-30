@@ -99,14 +99,14 @@ const TodoListItem = ({ id, name, description, onUpdate, onDelete }: TodoListIte
     <Item>
       <Inputs>
         <TitleInput
-          id="title"
+          id={`${id} title`}
           placeholder='New to-do'
           value={title}
           aria-label='todo title'
           onChange={handleTitleChange}
         />
         <DescriptionInput
-          id="description"
+          id={`${id} description`}
           placeholder='Optional further details'
           aria-label='todo description'
           value={desc}
