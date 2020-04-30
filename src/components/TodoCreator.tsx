@@ -74,14 +74,14 @@ const TodoCreator: React.FC<TodoCreator> = ({ onSubmit }) => {
   return (
     <Section>
       <header>
-        <h2>Add a new Todo</h2>
+        <h2>Add a new to-do</h2>
       </header>
       <Form onSubmit={handleSubmit}>
         <Label htmlFor="title">
           Title:
         <TitleInput
             id="title"
-            placeholder='New todo'
+            placeholder='New to-do'
             value={title}
             onChange={handleTitleChange}
           />

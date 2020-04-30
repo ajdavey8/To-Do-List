@@ -36,7 +36,7 @@ const todos: Todo[] = [
 describe('<TodoList>', () => {
   it('should return a message that the todo list is empty', () => {
     const { getByText } = setup()
-    getByText('No current todos')
+    getByText('No current to-dos')
   })
 
   it('should return a todo', () => {

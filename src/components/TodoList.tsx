@@ -38,7 +38,7 @@ const TodoList = ({ todos, onUpdate, onDelete }: TodoList) => (
           onDelete={onDelete}
         />
       )))
-      : <p>No current todos</p>
+      : <p>No current to-dos</p>
     }
   </Container>
 )
