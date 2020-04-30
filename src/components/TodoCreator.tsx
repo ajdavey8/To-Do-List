@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { NewTodo } from '../types';
 
 const Section = styled.section`
   background: #058ed8;
@@ -44,14 +45,14 @@ const Button = styled.button`
 `
 
 interface TodoCreator {
-  onSubmit: (event: any) => void
+  onSubmit: (event: NewTodo) => void
 }
 
 const TodoCreator: React.FC<TodoCreator> = ({ onSubmit }) => {
   const [title, setTitle] = useState<string>('')
   const [description, setDescription] = useState<string>('')
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     const todo = {

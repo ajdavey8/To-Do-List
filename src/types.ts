@@ -34,3 +34,7 @@ export interface Todo {
   description: string
   creationDate: string
 }
+
+export type NewTodo = Omit<Todo, 'creationDate' | 'id'>
+
+export type UpdatedTodo = Omit<Todo, 'creationDate'> 

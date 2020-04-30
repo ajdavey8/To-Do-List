@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Todo } from '../types';
+import { Todo, UpdatedTodo } from '../types';
 
 import TodoListItem from './TodoListItem';
 
@@ -21,7 +21,7 @@ const Container = styled.section`
 
 interface TodoList {
   todos: Todo[]
-  onUpdate: (action: any) => void
+  onUpdate: (todo: UpdatedTodo) => void
   onDelete: (id: number) => void
 }
 

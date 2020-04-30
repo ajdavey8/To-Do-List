@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react';
 
-import { UpdateAction, DeleteAction, CreateAction } from './types';
+import { UpdateAction, DeleteAction, CreateAction, UpdatedTodo, NewTodo } from './types';
 import todoReducer from './reducers/todos';
 import useRecordings from './hooks/useRecordings';
 
@@ -20,14 +20,14 @@ const App = () => {
     playRecording
   } = useRecordings()
 
-  const handleTodoCreate = (todo: any) => {
+  const handleTodoCreate = (todo: NewTodo) => {
     const action: CreateAction = { type: 'CREATE', payload: { ...todo } }
 
     dispatch(action)
     checkRecording(action)
   }
 
-  const handleTodoUpdate = (todo: any) => {
+  const handleTodoUpdate = (todo: UpdatedTodo) => {
     const action: UpdateAction = { type: 'UPDATE', payload: { ...todo } }
 
     dispatch(action)
